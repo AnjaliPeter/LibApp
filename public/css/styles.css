@@ -24,6 +24,9 @@ footer {
  
 }
 
+.navbar-width{
+  width:10px;
+}
 
 #masthead {
   min-height:199px;
