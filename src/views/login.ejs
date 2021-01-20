@@ -7,15 +7,16 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-    <link href="/css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     
 	</head>
 	<body>
+
     <header class="navbar navbar-bright navbar-fixed-top" role="banner">
 
       <div class="container">
@@ -31,15 +32,10 @@
         <!-- navbar -->
         <nav class="collapse navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
-            <a href="#" class="navbar-brand">LibraryApp</a>
-            <%for(i=0;i<nav.length-2;i++){%>
-              <li>
-                <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-              </li>
-            <%}%>
-            <%i++%>
+            <a href="/" class="navbar-brand">LibraryApp</a>
+            <%i=nav.length-2%>
             <li>
-              <a href="<%=nav[i].link%>" id="logins"><%=nav[i].name%></a>
+              <a href="<%=nav[i].link%>" id="logins1"><%=nav[i].name%></a>
             </li>
           </ul>
           <ul class="nav navbar-right navbar-nav">
@@ -54,7 +50,7 @@
           </ul>
         </nav>
       </div>
-      
+
     </header>
 
     <div id="masthead">  
@@ -69,8 +65,6 @@
             <div class="well well-lg"> 
               <div class="row">
                 <div class="col-sm-12">
-                  <a href="/books/updateform/<%=book._id%>" class="btn btn-primary btnNext" id="update-btn">Update<i class="glyphicon glyphicon-chevron-right"></i></a>
-                  <a href="/books/delete/<%=book._id%>/<%=book.image%>" class="btn btn-primary btnNext" id="update-btn">Delete<i class="glyphicon glyphicon-chevron-right"></i></a>
                 </div>
               </div>
             </div>
@@ -89,37 +83,36 @@
       <!-- /cont -->
       
     </div>
-
-
     <div class="container">
       <div class="row">
         <div class="col-md-12"> 
           <div class="panel">
             <div class="panel-body">
               
-              <!--Book-->
-              <div class="row">    
+              <!--Form-->
+              <form method="POST" class="col-lg-8 upform" action="/login/account">
+                <div class="mb-3">
+                    <label for="exampleInputUserName" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="loginuser" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="loginpass" required>
+                </div>
                 <br>
-                <div class="col-md-2 col-sm-3 text-center">
-                  <a class="story-title" href="#"><img alt="" src="/images/<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
+                <div>
+                    <a href="/signup" id="accnt">I don't have an account ! SignUp</a>
                 </div>
-                <div class="col-md-10 col-sm-9">
-                  <h3><%=book.title%></h3>
-                  <div class="row">
-                    <div class="col-xs-9">
-                      <h4><span class="label label-default"><%=book.author%></span></h4><h4>
-                      <small style="font-family:courier,'new courier';" class="text-muted"><%=book.genre%></small>
-                      </h4></div>
-                    <div class="col-xs-3"></div>
-                  </div>
-                  <h4 class="text-muted" style="text-align: justify;margin-right: 2em;"><%=book.about%></h4>
+                <br>
+                <div>
+                  <a href="/login/updatepasswd" id="accnt">Forgot Password ?</a>
                 </div>
-              </div>
-              <hr>
-              <!--/Book-->
-          
-              <a href="/books" class="btn btn-primary pull-right btnNext" id="more-btn">More Books<i class="glyphicon glyphicon-chevron-right"></i></a>
-        
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary" id="up-btn">LogIn</button>
+                </div>
+              </form>
+              <!--/Form-->
+              
             </div>
           </div>
         </div>
@@ -127,6 +120,7 @@
       </div>
     </div>
                                                     
+                                                                                    
     <hr>
 
     <div class="container" id="footer">
@@ -162,9 +156,11 @@
         </div>
       </div>
     </footer>
-	  <!-- script references -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
 
+    <!-- script references -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/script.js"></script>
+      
 	</body>
 </html>

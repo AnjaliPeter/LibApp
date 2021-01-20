@@ -7,12 +7,12 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-    <link href="/css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     
 	</head>
 	<body>
@@ -54,7 +54,7 @@
           </ul>
         </nav>
       </div>
-      
+
     </header>
 
     <div id="masthead">  
@@ -69,15 +69,14 @@
             <div class="well well-lg"> 
               <div class="row">
                 <div class="col-sm-12">
-                  <a href="/books/updateform/<%=book._id%>" class="btn btn-primary btnNext" id="update-btn">Update<i class="glyphicon glyphicon-chevron-right"></i></a>
-                  <a href="/books/delete/<%=book._id%>/<%=book.image%>" class="btn btn-primary btnNext" id="update-btn">Delete<i class="glyphicon glyphicon-chevron-right"></i></a>
+                  <a href="/authors/addauthor" class="btn btn-primary btnNext" id="add-btn">Add an Author<i class="glyphicon glyphicon-chevron-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
         </div> 
       </div>
-      
+
       <!-- /cont -->
       <div class="container">
         <div class="row">
@@ -87,46 +86,44 @@
         </div> 
       </div>
       <!-- /cont -->
-      
     </div>
-
 
     <div class="container">
       <div class="row">
         <div class="col-md-12"> 
           <div class="panel">
             <div class="panel-body">
-              
-              <!--Book-->
-              <div class="row">    
-                <br>
-                <div class="col-md-2 col-sm-3 text-center">
-                  <a class="story-title" href="#"><img alt="" src="/images/<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
-                </div>
-                <div class="col-md-10 col-sm-9">
-                  <h3><%=book.title%></h3>
-                  <div class="row">
-                    <div class="col-xs-9">
-                      <h4><span class="label label-default"><%=book.author%></span></h4><h4>
-                      <small style="font-family:courier,'new courier';" class="text-muted"><%=book.genre%></small>
-                      </h4></div>
-                    <div class="col-xs-3"></div>
-                  </div>
-                  <h4 class="text-muted" style="text-align: justify;margin-right: 2em;"><%=book.about%></h4>
-                </div>
-              </div>
-              <hr>
-              <!--/Book-->
           
-              <a href="/books" class="btn btn-primary pull-right btnNext" id="more-btn">More Books<i class="glyphicon glyphicon-chevron-right"></i></a>
-        
+            <!--authors-->
+            <%for(i=0;i<authors.length;i++){%>
+            <div class="row">    
+              <br>
+              <div class="col-md-2 col-sm-3 text-center">
+                <a class="story-title" href="/authors/<%=authors[i]._id%>"><img alt="" src="/images/<%=authors[i].image%>" style="width:100px;height:100px" class="img-circle"></a>
+              </div>
+              <div class="col-md-10 col-sm-9">
+                <h3><%=authors[i].author%></h3>
+                <div class="row">
+                  <div class="col-xs-9">
+                    <h4><span class="label label-default"><%=authors[i].book%></span></h4><h4>
+                    <small style="font-family:courier,'new courier';" class="text-muted"><%=authors[i].genre%> - <a href="/authors/<%=authors[i]._id%>" class="text-muted">Read More</a></small>
+                    </h4></div>
+                  <div class="col-xs-3"></div>
+                </div>
+                <br><br>
+              </div>
             </div>
+            <hr>
+            <%}%>
+            <!--/auhtors-->
+          
           </div>
         </div>
-        <!--/col-12-->
+      </div>
+      <!--/col-12-->
       </div>
     </div>
-                                                    
+                                                                                
     <hr>
 
     <div class="container" id="footer">
@@ -157,14 +154,15 @@
             </ul>
           </div>
           <div class="col-sm-6">
-            <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+              <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
           </div>
         </div>
       </div>
     </footer>
-	  <!-- script references -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
 
+    <!-- script references -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      
 	</body>
 </html>

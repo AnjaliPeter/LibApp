@@ -16,8 +16,8 @@
     
 	</head>
 	<body>
-    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
 
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,16 +31,16 @@
         <!-- navbar -->
         <nav class="collapse navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
-            <a href="#" class="navbar-brand">LibraryApp</a>
-            <%for(i=0;i<nav.length-2;i++){%>
-              <li>
-                <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
-              </li>
-            <%}%>
-            <%i++%>
+          <a href="#" class="navbar-brand">LibraryApp</a>
+          <%for(i=0;i<nav.length-2;i++){%>
             <li>
-              <a href="<%=nav[i].link%>" id="logins"><%=nav[i].name%></a>
+              <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
             </li>
+          <%}%>
+          <%i++%>
+          <li>
+            <a href="<%=nav[i].link%>" id="logins"><%=nav[i].name%></a>
+          </li>
           </ul>
           <ul class="nav navbar-right navbar-nav">
             <li class="dropdown">
@@ -54,7 +54,6 @@
           </ul>
         </nav>
       </div>
-      
     </header>
 
     <div id="masthead">  
@@ -69,15 +68,15 @@
             <div class="well well-lg"> 
               <div class="row">
                 <div class="col-sm-12">
-                  <a href="/books/updateform/<%=book._id%>" class="btn btn-primary btnNext" id="update-btn">Update<i class="glyphicon glyphicon-chevron-right"></i></a>
-                  <a href="/books/delete/<%=book._id%>/<%=book.image%>" class="btn btn-primary btnNext" id="update-btn">Delete<i class="glyphicon glyphicon-chevron-right"></i></a>
+                  <a href="/authors/updateform/<%=author._id%>" class="btn btn-primary btnNext" id="update-btn">Update<i class="glyphicon glyphicon-chevron-right"></i></a>
+                  <a href="/authors/delete/<%=author._id%>/<%=author.image%>" class="btn btn-primary btnNext" id="update-btn">Delete<i class="glyphicon glyphicon-chevron-right"></i></a>
                 </div>
               </div>
             </div>
           </div>
         </div> 
       </div>
-      
+
       <!-- /cont -->
       <div class="container">
         <div class="row">
@@ -89,44 +88,42 @@
       <!-- /cont -->
       
     </div>
-
-
     <div class="container">
       <div class="row">
         <div class="col-md-12"> 
           <div class="panel">
             <div class="panel-body">
               
-              <!--Book-->
+              <!--/Author-->
               <div class="row">    
                 <br>
                 <div class="col-md-2 col-sm-3 text-center">
-                  <a class="story-title" href="#"><img alt="" src="/images/<%=book.image%>" style="width:100px;height:100px" class="img-circle"></a>
+                  <a class="story-title" href="#"><img alt="" src="/images/<%=author.image%>" style="width:100px;height:100px" class="img-circle"></a>
                 </div>
                 <div class="col-md-10 col-sm-9">
-                  <h3><%=book.title%></h3>
+                  <h3><%=author.author%></h3>
                   <div class="row">
                     <div class="col-xs-9">
-                      <h4><span class="label label-default"><%=book.author%></span></h4><h4>
-                      <small style="font-family:courier,'new courier';" class="text-muted"><%=book.genre%></small>
+                      <h4><span class="label label-default"><%=author.book%></span></h4><h4>
+                      <small style="font-family:courier,'new courier';" class="text-muted"><%=author.genre%></small>
                       </h4></div>
                     <div class="col-xs-3"></div>
                   </div>
-                  <h4 class="text-muted" style="text-align: justify;margin-right: 2em;"><%=book.about%></h4>
+                  <h4 class="text-muted" style="text-align: justify;margin-right: 2em;"><%=author.about%></h4>
                 </div>
               </div>
-              <hr>
-              <!--/Book-->
-          
-              <a href="/books" class="btn btn-primary pull-right btnNext" id="more-btn">More Books<i class="glyphicon glyphicon-chevron-right"></i></a>
-        
+            <hr>
+              <!--/Author-->
+              
+            <a href="/authors" class="btn btn-primary pull-right btnNext" id="more-btn">More Authors<i class="glyphicon glyphicon-chevron-right"></i></a>
+              
             </div>
           </div>
         </div>
         <!--/col-12-->
       </div>
     </div>
-                                                    
+                                                
     <hr>
 
     <div class="container" id="footer">
@@ -134,9 +131,9 @@
         <div class="col col-sm-12">
           <h1>Follow Us</h1>
           <div class="btn-group">
-            <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
-            <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
-            <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+          <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+          <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+          <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
           </div>
         </div>
       </div>
@@ -157,14 +154,15 @@
             </ul>
           </div>
           <div class="col-sm-6">
-            <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
+              <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
           </div>
         </div>
       </div>
     </footer>
-	  <!-- script references -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- script references -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
 
 	</body>
 </html>
