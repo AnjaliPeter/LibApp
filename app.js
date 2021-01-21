@@ -77,9 +77,9 @@ app.get("/",(req,res)=>{
     });
 });
 
-
+app.listen();
 
 // server port
-app.listen(port,()=>{
-    console.log("Server is ready at " + port);
-});
+// app.listen(port,()=>{
+//     console.log("Server is ready at " + port);
+// });
